@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+// Font
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+
+$light: #fff;
+$dark: #000;
+$red: #f88888;
+$primary: rgb(9, 121, 111);
+$secondary: rgb(138, 79, 24);
+
+/* Global Styles */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Handlee", cursive, sans-serif;
+}
+
+* {
+  font-family: "Handlee", cursive, sans-serif;
+}
+
+.input,
+.textarea {
+  outline: none;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.textarea {
+  height: 5rem;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.input:focus,
+.input:active,
+.textarea:focus,
+.textarea:active {
+  box-shadow: 0 0 0 0.125em rgb(153, 153, 153);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  &.is-grouped {
+    flex-direction: row;
+    justify-content: flex-end;
+    .control {
+      margin-left: 10px;
+    }
+  }
+  .control {
+    display: flex;
+  }
+}
+
+button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: $dark;
+  cursor: pointer;
+  &.is-success {
+    color: $light;
+    background: $primary;
+  }
+  &.secondary {
+    background: $secondary;
+    color: $dark;
+  }
+}
+
+a {
+  text-decoration: none;
+}

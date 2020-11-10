@@ -1,0 +1,43 @@
+@import "../../../main-styles.scss";
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  color: $primary;
+  font-size: 1.5rem;
+  padding: 50px 20px 20px 20px;
+}
+
+.notes-list {
+  margin-top: 35px;
+  margin-bottom: 70px;
+}
+
+app-note-card {
+  display: block;
+  margin-bottom: 25px;
+}
+
+.floating-add-button {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid $primary;
+  border-radius: 50%;
+  outline: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  color: $light;
+  background-color: $primary;
+}

@@ -1,0 +1,50 @@
+<div class="form-container">
+  <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control">
+        <!-- ngModel is an angular forms directive which we have to put on form elements which we want to be included in the angular form -->
+
+        <!-- ngModel can actually be used without property binding but in this case we're going to bind to properties in the component class. -->
+
+        <!-- ng-invalid, ng-touched class has been added by the angular forms module (validation purpose) -->
+        <input
+          type="text"
+          name="title"
+          [ngModel]="note.title"
+          required
+          class="input"
+          placeholder="Title Goes Here..."
+        />
+      </div>
+    </div>
+    <br />
+    <div class="field">
+      <label class="label">Body</label>
+      <div class="control">
+        <textarea
+          class="textarea"
+          name="body"
+          [ngModel]="note.body"
+          placeholder="Write something here..."
+        ></textarea>
+      </div>
+    </div>
+    <div class="field is-grouped is-pulled-right">
+      <div class="control">
+        <button class="button is-text" type="button" (click)="cancelNote()">
+          Cancel
+        </button>
+      </div>
+      <div class="control">
+        <button
+          class="button is-success"
+          type="submit"
+          [disabled]="!noteForm.valid"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,45 @@
+<div class="main-container">
+  <div class="search-bar-container">
+    <div class="field">
+      <p class="control has-icons-left">
+        <input
+          #filterInput
+          class="input"
+          type="text"
+          placeholder="Search Here..."
+          (keyup)="filter($event.target.value)"
+        />
+      </p>
+    </div>
+  </div>
+  <div class="notes-list" [@listAnim]>
+    <!-- When using property binding with square brackets, Angular is expecting a template expression. So we can't just start typing a string, we must encapsulate the text in quotes to make it a string - just as we would do in a Typescript (or JS) file. -->
+
+    <!-- Angular is expecting a template expression, which could just be a property name (which references a property in the component class), or a function call. But also includes math, boolean, string operations etc. -->
+
+    <div *ngIf="filteredNotes.length; else noNotes">
+      <app-note-card
+        *ngFor="let note of filteredNotes"
+        [link]="generateNoteURL(note)"
+        (delete)="deleteNote(note)"
+        [title]="note.title"
+        [body]="note.body"
+        [@itemAnim]
+      ></app-note-card>
+    </div>
+
+    <ng-template #noNotes>
+      <div>
+        You have no notes yet. Click the
+        <span> + </span> icon to create a new one
+      </div>
+    </ng-template>
+
+    <!-- <app-note-card *ngFor="let note of filteredNotes; index as i" [link]="i" (delete)="deleteNote(note)"
+        [title]="note.title" [body]="note.body" [@itemAnim]></app-note-card> -->
+  </div>
+
+  <button class="button floating-add-button is-primary" routerLink="new">
+    +
+  </button>
+</div>
